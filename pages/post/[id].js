@@ -8,10 +8,10 @@ const Post = ({ posts }) => {
   const router = useRouter();
   const { id } = router.query;
   return (
-    <Box as="div" maxWidth="768px" width="90%" margin="0 auto">
+    <Box maxWidth="768px" width="90%" margin="0 auto">
       <Layout />
       {posts !== null && (
-        <Box as="div">
+        <Box>
           <Text
             fontSize={["1.5rem", "2rem", "2rem", "2rem"]}
             fontFamily="Montserrat,sans-serif"

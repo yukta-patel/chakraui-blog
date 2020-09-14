@@ -1,33 +1,64 @@
 import React from "react";
-import { Heading, Box, Flex, Button, Image, Text } from "@chakra-ui/core";
+import {
+  Heading,
+  Box,
+  Flex,
+  Button,
+  Image,
+  Text,
+  useColorMode,
+} from "@chakra-ui/core";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const Layout = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
       <Flex as="div" justifyContent="space-between">
-        <Heading
-          as="h1"
-          fontWeight="bold"
-          fontSize={["2.3rem", "3rem", "3rem", "3rem"]}
-          fontFamily="Montserrat, sans-serif"
-          m="0"
-          mt={["0.5rem", "0", "0", "0"]}
-        >
-          Overreacted
-        </Heading>
-        <Link href="/">
-          <Button
-            backgroundColor="#d23669"
-            color="white"
-            fontSize="1rem"
-            p={["0.1rem 0.7rem", "0.2rem 1rem", "0.2rem 1rem", "0.2rem 1rem"]}
-            mt="0.7rem"
-            fontWeight="none"
+        <Box>
+          <Heading
+            as="h1"
+            fontWeight="bold"
+            fontSize={["1.9rem", "3rem", "3rem", "3rem"]}
+            fontFamily="Montserrat, sans-serif"
+            m="0"
+            mt={["0.6rem", "0", "0", "0"]}
           >
-            Home
+            Overreacted
+          </Heading>
+        </Box>
+        <Box>
+          <Button
+            onClick={toggleColorMode}
+            background="none"
+            mt="0.5rem"
+            _hover={{ background: "none" }}
+            _focus={{
+              border: "none",
+            }}
+          >
+            <FontAwesomeIcon icon={colorMode === "light" ? faMoon : faSun} />
           </Button>
-        </Link>
+          <Link href="/">
+            <Button
+              backgroundColor="#d23669"
+              color="white"
+              fontSize={["0.7rem", "1rem", "1rem", "1rem"]}
+              p={["0", "0.2rem 1rem", "0.2rem 1rem", "0.2rem 1rem"]}
+              mt="0.7rem"
+              fontWeight="none"
+              _hover={{ backgroundColor: "#d23669" }}
+              _focus={{
+                border: "none",
+                backgroundColor: "#d23669",
+              }}
+            >
+              Home
+            </Button>
+          </Link>
+        </Box>
       </Flex>
       <Flex as="div" mt="3rem" flexDirection="row">
         <Image
@@ -37,7 +68,6 @@ const Layout = () => {
           borderRadius="50%"
         ></Image>
         <Box
-          as="div"
           pl="0.8rem"
           fontSize={["0.9rem", "1.1rem", "1.1rem", "1.1rem"]}
           fontFamily="Merriweather,serif"

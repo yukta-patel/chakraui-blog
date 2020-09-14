@@ -6,12 +6,12 @@ import { Box, Text, Link } from "@chakra-ui/core";
 const color = "#d23669";
 const Home = ({ posts }) => {
   return (
-    <Box as="div" maxWidth="768px" width="90%" m="0 auto">
+    <Box maxWidth="768px" width="90%" m="0 auto">
       <Layout />
-      <Box as="div" mt="5rem">
+      <Box mt="5rem">
         {posts !== null &&
           posts.map((post) => (
-            <Box as="div">
+            <Box>
               <Text
                 fontSize={["1.5rem", "2rem", "2rem", "2rem"]}
                 fontFamily="Montserrat,sans-serif"
@@ -31,7 +31,11 @@ const Home = ({ posts }) => {
                 {post.body}
               </Text>
               <LinkTo href={`/post/${post.id}`}>
-                <Link color="#d23669" fontWeight="bold">
+                <Link
+                  color="#d23669"
+                  fontWeight="bold"
+                  _hover={{ textDecoration: "none" }}
+                >
                   Read More
                 </Link>
               </LinkTo>

@@ -1,12 +1,11 @@
 import React from "react";
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import { ChakraProvider } from "@chakra-ui/core";
 import { AppProps } from "next/app";
 function App({ Component, pageProps }, AppProps) {
   return (
-    <ThemeProvider>
-      <CSSReset />
+    <ChakraProvider resetCSS>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ChakraProvider>
   );
 }
 export default App;
